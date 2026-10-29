@@ -1,0 +1,31 @@
+
+# Python virtual environments
+backend/venv/
+backend/.venv/
+
+# Python cache files
+backend/__pycache__/
+backend/**/*.pyc
+*.py[cod]
+
+# Local database
+backend/xeroxflow.db
+
+# Uploaded customer documents
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Frontend dependencies and build output
+frontend/node_modules/
+frontend/dist/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# IDE and operating system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
