@@ -73,18 +73,18 @@ def get_effective_frontend_url(base_url_param: str | None = None) -> str:
 
     return configured
 
-lan_ip = get_lan_ip()
-allowed_origins = [FRONTEND_URL, "http://localhost:5173", "http://127.0.0.1:5173"]
-if lan_ip and lan_ip != "127.0.0.1":
-    allowed_origins.append(f"http://{lan_ip}:5173")
+allowed_origins = [
+    "https://xerox-flow.vercel.app",
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+]
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=allowed_origins,
-    allow_origin_regex=r"^https?://(localhost|127\.0\.0\.1|10\.\d+\.\d+\.\d+|192\.168\.\d+\.\d+|172\.(1[6-9]|2\d|3[0-1])\.\d+\.\d+)(:\d+)?$",
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allow_headers=["Authorization", "Content-Type", "Accept", "*"],
     expose_headers=["Content-Disposition", "X-Shop-Order-URL"],
 )
 
